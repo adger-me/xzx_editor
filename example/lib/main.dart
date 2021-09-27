@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-
 import 'package:flutter/services.dart';
 import 'package:xzx_editor/xzx_editor.dart';
+import 'package:html_editor_enhanced/html_editor.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +17,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
+  final HtmlEditorController _controller = HtmlEditorController();
 
   @override
   void initState() {
@@ -53,8 +54,32 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 500,
+                child: XzxEditorView(
+                  controller: _controller,
+                  images: (images) async {
+                    print(images);
+                    return [];
+                  },
+                  videos: (videos) async {
+                    print(videos);
+                    return [
+                      'https://kbit-oss.oss-cn-shenzhen.aliyuncs.com/upload/feimg/video/test_video.mp4',
+                      'https://kbit-oss.oss-cn-shenzhen.aliyuncs.com/upload/feimg/video/test_video_h.mp4'
+                    ];
+                  },
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 10),
+                child: const Text('aaaa'),
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
+export 'widget/widget.dart';
 
 class XzxEditor {
   static const MethodChannel _channel = MethodChannel('xzx_editor');
