@@ -14,9 +14,11 @@ dependencies:
 
 ## 使用
 
-```flutter
+```dart
+/// 初始化
 final HtmlEditorController _controller = HtmlEditorController();
 
+/// 使用
 Scaffold(
     appBar: AppBar(
       title: const Text('富文本编辑器'),
@@ -48,4 +50,7 @@ Scaffold(
       ),
     ),
 )
+
+/// 获取内容
+await _controller.getText();
 ```
