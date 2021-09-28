@@ -1,6 +1,4 @@
-import 'dart:collection';
 import 'dart:io';
-
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -11,12 +9,16 @@ class XzxEditorView extends StatefulWidget {
   final HtmlEditorController controller;
   final Future<List<String>> Function(List<File> images)? images;
   final Future<List<String>> Function(List<File> videos)? videos;
+  final double? height;
+  final Callbacks? callbacks;
 
   const XzxEditorView({
     Key? key,
     required this.controller,
     this.images,
-    this.videos
+    this.videos,
+    this.height,
+    this.callbacks
   }) : super(key: key);
 
   @override
@@ -226,11 +228,10 @@ class _XzxEditorViewState extends State<XzxEditorView> {
             initialText: '',
             filePath: 'packages/xzx_editor/assets/summernote.html'
           ),
-          callbacks: Callbacks(
-            onInit: () async {
-              debugPrint('init');
-            }
+          otherOptions: OtherOptions(
+            height: widget.height ?? 100
           ),
+          callbacks: widget.callbacks,
         ),
       ],
     );
