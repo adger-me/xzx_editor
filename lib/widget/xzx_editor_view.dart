@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
@@ -224,6 +225,11 @@ class _XzxEditorViewState extends State<XzxEditorView> {
             shouldEnsureVisible: true,
             initialText: '',
             filePath: 'packages/xzx_editor/assets/summernote.html'
+          ),
+          callbacks: Callbacks(
+            onInit: () async {
+              debugPrint('init');
+            }
           ),
         ),
       ],
