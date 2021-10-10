@@ -67,8 +67,9 @@ class _XzxEditorViewState extends State<XzxEditorView> {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 49,
-      decoration: const BoxDecoration(
-        border: Border(top: BorderSide(width: 1, color: Color(0xffeeeeee)))
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.background,
+        border: const Border(top: BorderSide(width: 1, color: Color(0xffeeeeee)))
       ),
       child: ListView(
         scrollDirection: Axis.horizontal,
@@ -184,8 +185,9 @@ class _XzxEditorViewState extends State<XzxEditorView> {
       child: Container(
         height: 49,
         width: MediaQuery.of(context).size.width,
-        decoration: const BoxDecoration(
-          border: Border(top: BorderSide(width: 1, color: Color(0xffeeeeee)))
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.background,
+          border: const Border(top: BorderSide(width: 1, color: Color(0xffeeeeee)))
         ),
         child: child,
       ),
