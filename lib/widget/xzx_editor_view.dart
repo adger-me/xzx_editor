@@ -11,6 +11,7 @@ class XzxEditorView extends StatefulWidget {
   final Future<List<String>> Function(List<File> videos)? videos;
   final double? height;
   final Callbacks? callbacks;
+  final String? initText;
 
   const XzxEditorView({
     Key? key,
@@ -18,7 +19,8 @@ class XzxEditorView extends StatefulWidget {
     this.images,
     this.videos,
     this.height,
-    this.callbacks
+    this.callbacks,
+    this.initText
   }) : super(key: key);
 
   @override
@@ -224,10 +226,10 @@ class _XzxEditorViewState extends State<XzxEditorView> {
             toolbarPosition: ToolbarPosition.custom,
             defaultToolbarButtons: []
           ),
-          htmlEditorOptions: const HtmlEditorOptions(
+          htmlEditorOptions: HtmlEditorOptions(
             hint: '请输入内容',
             shouldEnsureVisible: true,
-            initialText: '',
+            initialText: widget.initText ?? '',
             filePath: 'packages/xzx_editor/assets/summernote.html'
           ),
           otherOptions: OtherOptions(
